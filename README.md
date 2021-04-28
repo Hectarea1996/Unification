@@ -1,5 +1,5 @@
 # Unification
-Unification is an algorithm for solving equations problems. Given two expressions and some variables, 
+Unification is an algorithm for solving symbolic equations problems. Given two expressions and some variables, 
 the unification looks for values that can match the given variables to satisfy the equation. 
 
 The algorithm implemented in this repository is based on [Peter Norvig's paper](http://norvig.com/unify-bug.pdf).
