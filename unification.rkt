@@ -1,4 +1,7 @@
-#lang racket
+#lang racket/base
+
+
+(provide unify)
 
 
 ; var?
@@ -43,7 +46,7 @@
 ; unify
 (define (unify vars expr1 expr2 [subst null])
 
-  (define-values (fail fail?) (values #f false?))
+  (define-values (fail fail?) (values #f (λ (v) (not v))))
   
   (cond
     [(equal? expr1 expr2) subst]
@@ -52,15 +55,3 @@
     [(var? expr2 vars) (unify-variable expr2 expr1 vars subst fail)]
     [(or (atom? expr1) (atom? expr2)) fail]
     [else (unify vars (cdr expr1) (cdr expr2) (unify vars (car expr1) (car expr2) subst))]))
-
-
-; Examples
-(unify '(X) 'X 'a)
-
-(unify '(X Y) 'X 'Y)
-
-(unify '(X Y) '(p X Y) '(p Y X))
-
-(unify '(X Y) '(p X Y a) '(p Y X X))
-
-(unify '(X Y Z) '(q (p X Y) (p Y X)) '(q Z Z)) 
