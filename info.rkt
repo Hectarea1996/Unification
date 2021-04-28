@@ -1,5 +1,5 @@
 #lang info
 
-(define collection "Unification")
+(define collection "unification")
 (define deps '("base"))
-(define scribblings '(("scribblings/Unification.scrbl" (multi-page))))
+(define scribblings '(("scribblings/unification.scrbl" (multi-page))))
